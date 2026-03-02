@@ -1,0 +1,123 @@
+:root {
+    --orange: #ff8c00;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background aesthetic blob */
+.bg-blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--orange);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: -1;
+    top: 20%;
+    left: 30%;
+    opacity: 0.4;
+}
+
+.calculator {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(150%);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 380px;
+}
+
+#screen {
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-weight: 300;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    height: 70px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    color: #eee;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Specific button themes */
+.btn-orange {
+    color: var(--orange);
+    font-weight: bold;
+}
+
+.btn-clear {
+    color: #ff4d4d;
+}
+
+.btn-equal {
+    background: var(--orange);
+    color: black;
+    font-weight: bold;
+    grid-row: span 2;
+    height: auto;
+}
+
+.btn-equal:hover {
+    background: #ffa500;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+.btn-zero {
+    grid-column: span 1;
+}
+
+/* Responsiveness */
+@media (max-width: 400px) {
+    .calculator {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .btn { height: 60px; }
+}
